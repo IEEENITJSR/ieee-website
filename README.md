@@ -26,8 +26,8 @@ AWS_S3_BUCKET_NAME=(Your bucket name)
 PREURL=https://somesh-bucket.s3.eu-north-1.amazonaws.com
 MONGODB_URI=(Your MongoDB connection URI)
 ```
-Now you are ready to shoot : 🔥🔥
+Now you are ready to shoot : 🚀🚀
 
 ```bash
-npm run dev 🚀🚀
+npm run dev 🔥🔥
 ``` 
