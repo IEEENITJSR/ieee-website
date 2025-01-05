@@ -17,7 +17,7 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
     console.log("Id received is : ", id);
     await connectDB();
     const _id = id;
-    const event = await Events.findById(_id); // Implement getEventById logic
+    const event = await Events.findById(_id); 
     return res.json(event);
   } catch (error) {
     return res.json({ error });

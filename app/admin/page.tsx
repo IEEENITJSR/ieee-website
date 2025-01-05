@@ -15,7 +15,7 @@ interface Event {
 }
 
 const Page = () => {
-  const [events, setEvents] = useState<Event[]>([]); // Set state to hold event data
+  const [events, setEvents] = useState<Event[]>([]); 
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -23,7 +23,7 @@ const Page = () => {
         const response = await fetch("/api/getEvents");
         const data = await response.json();
         if (data.status === 201) {
-          setEvents(data.data); // Store events data in state
+          setEvents(data.data);
         } else {
           console.error("Error fetching events:", data.message);
         }
@@ -63,7 +63,7 @@ const Page = () => {
           <div className="text-lg italic">{event.briefSummary}</div>
           <div className="text-md font-semibold">Author: {event.author}</div>
 
-          {/* Display images */}
+          
           <div className="flex space-x-4 mt-4">
             {event.imageUrls.map((imageUrl, index) => (
               <img

@@ -11,7 +11,7 @@ interface Event {
   body: string;
   briefSummary: string;
   location: string;
-  imageUrls: string[]; // Existing image URLs
+  imageUrls: string[]; 
 }
 
 const UpdateEvent = () => {
@@ -23,13 +23,13 @@ const UpdateEvent = () => {
     location: "",
     imageUrls: [],
   });
-  const [newImages, setNewImages] = useState<File[]>([]); // New images to add
-  const [newImagePreviews, setNewImagePreviews] = useState<string[]>([]); // Previews of new images
+  const [newImages, setNewImages] = useState<File[]>([]); 
+  const [newImagePreviews, setNewImagePreviews] = useState<string[]>([]); 
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const params = useParams();
 
-  // Fetch existing event data for editing
+  
   useEffect(() => {
     const fetchEvent = async () => {
       try {
@@ -49,7 +49,7 @@ const UpdateEvent = () => {
     fetchEvent();
   }, [params, router]);
 
-  // Handle new image selection
+  
   const handleNewImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files ? Array.from(e.target.files) : [];
     if (files.length > 0) {
@@ -59,7 +59,7 @@ const UpdateEvent = () => {
     }
   };
 
-  // Handle form submission
+ 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -76,23 +76,23 @@ const UpdateEvent = () => {
       return;
     }
 
-    // Create an object for the updated event data
+  
     const updatedEvent = {
       title: event.title,
       author: event.author,
       body: event.body,
       briefSummary: event.briefSummary,
       location: event.location,
-      imageUrls: [...event.imageUrls, ...newImagePreviews], // Append new images
+      imageUrls: [...event.imageUrls, ...newImagePreviews],
     };
 
     try {
       const response = await fetch(`/api/events/${params.id}`, {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json", // Set the request header to application/json
+          "Content-Type": "application/json", 
         },
-        body: JSON.stringify(updatedEvent), // Send updated event data as JSON
+        body: JSON.stringify(updatedEvent), 
       });
 
       const data = await response.json();

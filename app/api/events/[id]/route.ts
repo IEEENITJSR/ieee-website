@@ -11,7 +11,7 @@ interface EventRequest {
   location: string;
   imageUrls: string[];
 }
-// Simulated database or external service function
+
 
 export async function GET(
   req: NextRequest,

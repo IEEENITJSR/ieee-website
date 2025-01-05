@@ -32,7 +32,7 @@ const DeleteEvent = () => {
 
   const isEditing = !!params?.id;
 
-  // Fetch existing event data if editing
+  
   useEffect(() => {
     const fetchEvent = async () => {
       if (isEditing) {
@@ -41,7 +41,7 @@ const DeleteEvent = () => {
           const data = await response.json();
           if (data?.event) {
             setEvent(data.event);
-            setImagePreviews(data.event.imageUrls); // Load existing images as previews
+            setImagePreviews(data.event.imageUrls); 
           } else {
             toast.error("Event not found.");
             router.push("/admin");

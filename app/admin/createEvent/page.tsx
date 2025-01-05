@@ -3,36 +3,36 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Make sure to import the CSS
+import "react-toastify/dist/ReactToastify.css"; 
 
 
 const CreateEvent = () => {
-  const [title, setTitle] = useState(""); // For event title
-  const [author, setAuthor] = useState(""); // For event author name
-  const [body, setBody] = useState(""); // For event body
-  const [briefSummary, setBriefSummary] = useState(""); // For event brief summary
-  const [location, setLocation] = useState(""); // For event location
-  const [imageFiles, setImageFiles] = useState<File[]>([]); // Store multiple images
-  const [imagePreviews, setImagePreviews] = useState<string[]>([]); // Store image preview URLs
-  const [error, setError] = useState<string | null>(null); // For form error message
-  const [isLoading, setIsLoading] = useState(false); // For loading indicator
+  const [title, setTitle] = useState(""); 
+  const [author, setAuthor] = useState(""); 
+  const [body, setBody] = useState(""); 
+  const [briefSummary, setBriefSummary] = useState(""); 
+  const [location, setLocation] = useState(""); 
+  const [imageFiles, setImageFiles] = useState<File[]>([]); 
+  const [imagePreviews, setImagePreviews] = useState<string[]>([]); 
+  const [error, setError] = useState<string | null>(null); 
+  const [isLoading, setIsLoading] = useState(false); 
   const router = useRouter();
 
-  // Handle file input change (image selection)
+ 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files ? Array.from(e.target.files) : [];
     if (files.length > 0) {
-      const filePreviews = files.map((file) => URL.createObjectURL(file)); // Previews of selected images
+      const filePreviews = files.map((file) => URL.createObjectURL(file)); 
       setImageFiles(files);
       setImagePreviews(filePreviews);
     }
   };
 
-  // Handle form submission
+ 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Check if required fields are filled
+   
     if (
       !title ||
       !author ||
@@ -46,7 +46,7 @@ const CreateEvent = () => {
       return;
     }
 
-    // Create FormData for sending to backend
+    
     const formData = new FormData();
     formData.append("title", title);
     formData.append("author", author);
@@ -54,7 +54,7 @@ const CreateEvent = () => {
     formData.append("briefSummary", briefSummary);
     formData.append("location", location);
 
-    // Add multiple images to FormData
+    
     imageFiles.forEach((file) => {
       formData.append("images", file);
     });
@@ -68,7 +68,7 @@ const CreateEvent = () => {
       if (data.success) {
         console.log("Uploaded image URLs:", data.urls);
         toast.success("Event created successfully!");
-        router.push("/admin"); // Redirect after successful submission
+        router.push("/admin");
       } else {
         setError("There was an issue uploading the images.");
         toast.error("There was an issue uploading the images.");
