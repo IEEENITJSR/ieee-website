@@ -2,7 +2,7 @@ import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <section className="my-3">
+    <section className="my-3 pt-32" id="about">
       {/* Text Section */}
       <h2 className="text-2xl text-center font-bold mb-2">About us</h2>
       <div className='grid grid-cols-1 md:grid-cols-12 md:min-h-6 items-center justify-center gap-4 p-4'>
