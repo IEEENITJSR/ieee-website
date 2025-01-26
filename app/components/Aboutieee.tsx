@@ -6,10 +6,10 @@ const AboutIEEE: React.FC = () => {
     <div className="bg-sky-700 px-4 rounded-md pb-8" id="membership">
       <div style={{ margin: "0 1%" }}>
         <div>
-          <div className="flex text-2xl font-semibold text-slate-50 py-4 justify-center aboutHead">
+          <div className="flex text-2xl font-sans font-semibold text-slate-50 py-4 justify-center aboutHead">
             About IEEE
           </div>
-          <p className="text-lg text-justify font-normal text-slate-50 px-1 pb-4 text-justify aboutText">
+          <p className="text-lg font-sans font-normal text-slate-50 px-1 pb-4 text-justify aboutText">
             IEEE is the world's largest professional association dedicated to
             advancing technological innovation and excellence for the benefit of
             humanity. When you join IEEE, you join a community of over 425,000

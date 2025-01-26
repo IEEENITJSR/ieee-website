@@ -4,11 +4,11 @@ const About: React.FC = () => {
   return (
     <section className="my-3">
       {/* Text Section */}
-      <h2 className="text-2xl text-center font-bold mb-2">About us</h2>
+      <h2 className="text-2xl text-center font-sans font-bold mb-2">About us</h2>
       <div className='grid grid-cols-1 md:grid-cols-12 md:min-h-6 items-center justify-center gap-4 p-4'>
       <div className="bg-blue-100 col-span-1 md:col-span-6 p-6 rounded-lg shadow-md md:min-h-max">
         
-        <p className="text-gray-700 text-lg text-justify leading-relaxed">
+        <p className="text-gray-700 text-lg text-justify font-sans font-medium leading-relaxed">
           The IEEE Systems Council, known as the Institute of Electrical and Electronics Engineers, represents the
           pinnacle of technical professionalism and innovation globally. With a membership that encompasses
           engineers, scientists, and allied professionals from diverse domains, including computer science, software
